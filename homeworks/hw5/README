@@ -1,0 +1,8 @@
+Name: Yucheng He
+CS login: yhe01
+Assigment #: hw5
+Date: 7/27/2015
+Note: I choose selection sort, heap sort and quick sort as my three implantations.
+	Selection sort: in these three sort algorithms, selection sort is the worst one. Selection sort take n*n time for all cases.
+Heap sort: heap sort is a faster sort algorithm compared to selection sort. For all cases, it always takes nlogn time.
+Quick sort: quick sort is in the same level as heap sort, it is fast too, while it is a little faster than heap sort. For quick sort, I take 3-median to pick pivot, it is much faster than the poor quick sort, which always take the first element in the array as the pivot. Since the 3-median pivot will avoid the worst case of quick sort.

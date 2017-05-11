@@ -1,0 +1,198 @@
+//Array-based
+// everytime reach the limit of the size, double it;
+class List{
+	private:
+		int * a;
+		int length;
+		int lastelem;
+	public:
+		List(){ a = new int [max]; lastelem = -1}
+		void insert(int newElem, int localim)
+		{
+			for(int i = lastitem; i >= localim; I--) {
+				a[i+1] = a[i];
+			}
+			a[localim] = newElem;
+			lastelem++;
+			if(lastelem+1 == length) {
+				int *b = new int [2*length];
+				for(i = 0; i<= lastelem; i++) {
+					b[i] = a[i];
+			}
+				a = b;
+				setLength(2*length);
+			}
+		}
+}
+
+void List::insert()
+{
+	
+}
+
+Disadventages
+1. Inserting or deleting in the beginning or in the middle is costly;
+2. Arrays have fixed length;
+
+Linked List;
+
+
+// The data make link list node work:
+class ListNode{
+	private:
+		int mValue;
+		ListNode * mNext;
+	public:
+		void setValue(int aVal) //can not be a const;
+		{
+		mValue = aVal;
+		};
+		void setNext(ListNode * aNext)
+		{
+		mNext = aNext;
+		};
+
+};
+
+{
+	ListNode * l1 = new ListNode();
+	l1->setValue(15);
+	ListNode * l2 = new ListNode();
+	l2->setValue(20);
+	ListNode * l3 = new ListNode();
+	l3->setValue(30);
+	l1->setNext(l2);
+	l2->setNext(l3);
+	l3->setNext(nullptr);
+}
+
+// NULL is generally map to zero. if you have two function with the same name(overloading), if you call with NULL you return to zero or pointer?
+
+
+class ListNode{
+	private:
+		int mValue;
+		ListNode * mNext;
+	public:
+		ListNode(int aValue, ListNode * aNext)
+		:mValue(aValue), mNext(aNext)
+		{};
+		ListNode(int aValue, ListNode * aNext)
+		:mValue(aValue), mNext(nullptr)
+		{};
+};
+
+{
+	ListNode * ll = new ListNode(15, new ListNode(20, new ListNode(30)));
+}
+
+
+// Advantages
+1. Inserting in the middle of the list is fast;
+2. List can keep growing until there is no memory;
+
+
+
+//Insert after "this" node
+void ListNode:: insertAfter(int aVal)
+{
+	mNext = new ListNode(aVal, mNext);
+
+}
+
+//for each item add; 
+{
+	l->insertAfter(item);  // l is the last of the list (Tail pointer)
+	l = l->next();
+}
+
+// Singly Linked List: single link to the next ListNode;
+
+class SLL{
+	int mVal;
+	int SLLNode * mNext;
+}
+
+// Two problems:
+1. Two pointers p1 and p2 can point to the same list;
+2. How do you represant an empty list;
+// Solutios:
+Define a wrapper class around the SLLNode;
+
+
+// SLL
+
+class SLL{
+	private:
+	SLLNode * mHead; // the pointer to the head of the list
+	int mSize;
+	public:
+	SLL(): mHead(nullptr), mSize(0){};
+	void insertFront(int aVal){
+		mHead = new SLLNode(aVal, mHead);
+	};
+
+}
+
+// Data Hiding: 
+1. Private methods are inaccessible to the outside world;
+2. Interface should be as simple as possible;
+
+----> Prevents my data to be corrupted by other (protection)
+----> Improve the underlying implementation without causing other classes to foul. (Flexibility)
+
+// Interface: A set of prototype for my public methods and description of their behaviors.
+
+// ADT (abstract data type): A class with a well-defined interface but the implementation details are hidden;
+
+//Invariant: A fact about a data structure that is always true.
+=> Not all classes are ADTs. Some classes just store data.(No Invariant);
+
+// Further Advantage of SLL class: Enforces invariants
+=> size is always correct;
+=> this list is never circularily linked
+=> only the SLL methods can change the SLLNode 
+-> mHead and mSize are private;
+-> No method in SLL return an SLLNode;
+
+// Deleting a node
+	SLL:: deleteFront()
+	{
+		if (mHead != nullptr) {
+			temp = mHead;
+			mHead = mHead->next();
+			delete temp;
+			mSize = mSize - 1;
+		}
+	}
+
+// Inserting or deleting in the end of the SSL == O(n)
+
+// Insert in the end: Tail pointer;
+// for delete the end, you still need order of n
+
+//Preview pointer
+
+//Double Linked List:
+// Insert / Delete operation at both ends  => O(1);
+
+//Deleting the tail node:
+	mTail->prev()->setNext(nullptr);
+	DLLNode * temp = mTail;
+	mTail = mTail->prev();
+	delete temp;
+
+// Simplify the implementation (elagant)
+
+* Introduce a sentinal node
+-> is a special node that does not contain any data;
+
+DLL{
+	DLLNode * mHead
+}
+//.....
+
+Next of tail = sentinal
+Prev of head = sentinal
+
+

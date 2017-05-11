@@ -1,0 +1,10 @@
+1. declaration, definition, instantiation
+
+2. array and list difference
+in terms of find and insert using Big-Oh
+in terms of space they use
+array is like continue, linklist can be one node by one node.
+we need to check the capacity of array, but we dont need to check for linklist.
+string using array of char should be end with '\0', since the computer cannot tell this is string, so you need to put a '\0' to tell the computer it is the end of the string.
+
+binary search tree

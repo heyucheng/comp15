@@ -1,0 +1,110 @@
+
+// note2
+// Recursion Queue and Stack
+
+//Stacks
+--Cripped list with access restricted to the "top" of the list (more restricted more fast) (can use array based list or linked list)
+--"LIFO": last in first out
+-- Three main operations:
+* "push" a new item onto the top of the stack
+* "pop" the top item off the stack
+* examine the "top" item of the stack
+? Check is the stack empty?
+--> Easily implemented as a singly linked list
+	AU operation take O(1)
+--> Limmtations that sn imposted upon the list tell us how an algrithm takes
+
+EX1: Paretheses matching
+	{[(){()}]}
+Scan through the input string, charactor bu charactor
+* Left parenthesis {[( "push"
+* Right parentesis }]) "pop" its counter part off the stack
+* Check whether they match
+Mission Occurs when
+1) Mismatch with the poped item
+2) Try to pop from an empty stack
+3) Get to the end of the string and stack is not empty
+
+EX2: Function call
+compiler-> assembly code
+f1()
+{
+	f2();
+}
+f2()
+{
+	f3();
+}
+activation record or runtime call stack
+
+EX3: Expression Evaluation
+	1+5*6
+postfix notation: place the operator after the refference
+	:56*1+
+for number push
+for operator pop twice, operate, and push back the result
+if the stack is empty, not push back
+get the end of the string the stack should be empty
+
+//Queues
+--Cripped list where the basic operation allowed are
+--"FIFO": first in first out
+--main functions
+* "Enqueue" an item into the queue (happens in the end)
+* "Dequeue" an item from the queue (happens front the front)(Dequ is the double end queue)
+* "Front" item of the queue (get the front item)
+? Check is the queue empty
+
+//Implementation of Stacks and Queues
+
+
+
+// Recursion
+-- 2 aspects:
+* Argument: n
+* Conditions: You need to have a base case and a recursion
+
+1) Decomposition of a problem into subproblem
+2) Solving the subproblems
+3) Recomposing the solutions to the subproblems
+
+EX1: Factorial : fact(n) 
+	Basis: (n == 1) => result = 1;
+	Inductive step: (n > 1) => x = n * fact(n - 1) [Decomposition step]
+							   result = x * n [Recompositive step]
+
+EX2: Fibonacci Numbers fib(n)
+* Argument n
+	Basis case: (n <= 0) => result = 0
+				(n == 1) => result = 1
+	Inductive:  (n > 1) => x1 = fib(n - 1) [Decoposition step]
+						   x2 = fib(n - 2)
+						   result = x1 + x2 [Recopositive step]
+
+EX3: Tower of Hanoi
+	|           |			 |
+	|  A        |   B 		 |    C
+	|           |			 |
+	|			|			 |
+_________   _________    _________
+TOH(2, A, C, B): (move 2 elements from A to C using B)
+<A, C>
+<A, B>
+<C, A>
+<B, C>
+<A, C> To this step you move two elements to C, this can be a basis case.
+
+TOH(3, A, B, C):
+1) TOH(2, A, C, B)
+2) TOH(1, A, B, C)
+3) TOH(2, C, B, A)
+
+TOH(n, A, B, C)
+Base: (n == 1, A, B) => L = {<A, B>}
+Inductive: (n > 1, A, B, C) =>L1 = TOH(n - 1, A, C, B) [Decomposition]
+							  L2 = TOH(1, A, B, C)
+							  L3 = TOH(n - 1, C, B, A)
+							=>L = Append (L1, L2, L3) [Recompositive]
+
+
+

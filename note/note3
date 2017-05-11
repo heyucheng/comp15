@@ -1,0 +1,87 @@
+//Asymptotie Complexity f Algorithms
+2 questions
+(1). How can we say an algorithm is better than others
+(2). What are the measures for competition?
+* Time
+* Space: RAM(data) and ROM(Instrs)
+unless the space required is exponential, time is the most important metre.
+
+EX: Inventory
+- 10000ms to read the inventory from disk
+- 10ms to process each transaction
+
+When have n transactions T = 10000 + 10n (ms)
+When n -> infinity, ==> Asymptotie analysis
+
+(1) Big-Oh notation (O)	(upper bound)
+		==> Abstract relationship between two functions
+	Let n be the size(how many items) of the program's input
+	Let T(n) be a function (in the real world): ex: runing time
+	Let f(n) be another function (hopefully simpler than T(n))
+
+	T(n) E O(f(n)) iff T(n) <= c * f(n), for a Big value of n, for somevalue of c > 0;
+												this Big is big enough to make T(n) fit when c * f(n)
+		T(n) = 10000 + 10n
+		f(n) = 20n
+		for any n > 1000, T(n) <= c(f(n)) ==> T(n) E O(f(n))
+		s.t. T(n) = O(f(n))
+
+		Formally, O(f(n)) is the set of all functions represanted as T(n) that satisfies: 
+		there exist positive c and N, such that for all n > N, T(n) <= c * f(n);
+
+	Eg1: T(n) = 1000000n E O(n); when c = 1000000 and N = 0;
+	===> Big-Oh notation does not care about constant factor;
+	===> We can abstract out the speed of giving algorithm independent of the underlining architecture, OS, compiler
+		therefor unnecessary to write O(20n); just write O(n)
+
+	Eg2: T(n) = n E O(n^3)  
+	when c = 1, N = 1; 
+	===> Does not mean it is slow, because it is only the upper bound, it can be any higher than n;
+
+	Eg3: T(n) = n^3 + n^2 + n  E O(n^3)
+	when n = 1; T(n) = 3;
+	So c = 1; N = 3;
+	===> Big-Oh notation is usually used to indicate the dominating term
+
+	CONSTANT; LOGARITHMIC; ROOT; LINEAR; nlog n; QUADIRATIC; CUBIC; EXPONENTIAL; 
+	Algo 1: T(n) = nlogn
+	Algo 2: T(n) = 100n
+	log(n) / log(2) < 50 in practice
+
+(2) Big-Omega Ω(Lower Bound) 
+	Ω(f(n)) is the set of all function that satify:
+	there exits positive constant d and N; such tat for all n >= N; T(n) >= c * f(n)
+
+	Ω is the reverse of O
+	==> if T(n) E O(f(n));,
+		f(n) E Ω(T(n))
+
+(3) Big-Theta Θ
+	If T(n) E O(f(n))
+	and T(n) E Ω(f(n))
+	d * f(n) <= T(n) <= c * f(n), n >= N;
+	fot positive constants c, d, N
+	Formally Θ(f(n)) is the set of all function that are in both O(f(n)) and Ω(f(n))
+
+	How can you have a upper bound and lower bound?
+	===> Just choose two differernt constants c and d; 
+
+	If f(n) E Θ(g(n))
+	then g(n) E Θ(f(n))
+
+	Θ notation cannot be misleading
+
+
+// Sorting
+
+// Selection Sort	
+	SORT(n, L) --> L'
+	Base: (n == 1) ==> L' = L
+	Inductive: (n > 1) ==> x = Max(L);
+						   L1 = L - {x}
+						   L2 = SORT(n - 1, L1)
+						   L' = APPEND(x, L2)
+
+
+
+

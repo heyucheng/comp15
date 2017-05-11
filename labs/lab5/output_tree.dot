@@ -1,0 +1,30 @@
+digraph{
+15 -> 8
+8 -> 2
+NULL0[shape=point]
+2 -> NULL0
+NULL1[shape=point]
+2 -> NULL1
+8 -> 12
+12 -> 10
+NULL2[shape=point]
+10 -> NULL2
+NULL3[shape=point]
+10 -> NULL3
+12 -> 14
+NULL4[shape=point]
+14 -> NULL4
+NULL5[shape=point]
+14 -> NULL5
+15 -> 50
+50 -> 25
+NULL6[shape=point]
+25 -> NULL6
+NULL7[shape=point]
+25 -> NULL7
+50 -> 75
+NULL8[shape=point]
+75 -> NULL8
+NULL9[shape=point]
+75 -> NULL9
+}

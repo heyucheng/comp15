@@ -1,0 +1,20 @@
+class Solution {
+    void BFS(set<vector<int>>& retval, vector<int>& tmp, vector<int>& nums, int idx) {
+        if (tmp.size() >= 2) retval.insert(tmp);
+        for (int i = idx; i < nums.size(); i++) {
+            if (tmp.size() == 0 || nums[i] >= tmp[tmp.size()-1]) {
+                tmp.push_back(nums[i]);
+                BFS(retval, tmp, nums, i+1);
+                tmp.pop_back();
+            }
+        }
+    }
+public:
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        set<vector<int>> retval;
+        vector<int> tmp;
+        BFS(retval, tmp, nums, 0);
+        vector<vector<int>> res(retval.begin(), retval.end());
+        return res;
+    }
+};
